@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ososs_flutter_task/core/utils/resource/langauge_manager.dart';
+import 'package:ososs_flutter_task/features/home/presentation/home_view.dart';
 import 'package:ososs_flutter_task/features/splash/presentation/view/splash_view.dart';
 
 import 'string_manager.dart';
@@ -17,6 +18,8 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashView());
+      case Routes.homeRoute:
+        return MaterialPageRoute(builder: (_) => const HomeView());
       default:
         return unDefinedRoute();
     }

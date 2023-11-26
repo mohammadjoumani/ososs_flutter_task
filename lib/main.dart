@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ososs_flutter_task/core/app/app.dart';
@@ -14,5 +15,10 @@ void main() async {
     ),
   );
   await initAppModule();
-  runApp(const OsossApp());
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const OsossApp(), // Wrap your app
+    ),
+  );
 }
