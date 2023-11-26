@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'color_manager.dart';
 import 'font_manager.dart';
 
 abstract class Styles {
@@ -33,23 +32,4 @@ abstract class Styles {
       {double fontSize = FontSize.s14, required Color color}) {
     return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
   }
-
-  // Outline Input Border
-  static OutlineInputBorder outlineInputBorderGray = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(5.0),
-    borderSide: const BorderSide(color: ColorManager.colorGray1, width: 1),
-  );
-
-  static ShapeDecoration cardDecoration = ShapeDecoration(
-    color: Colors.white,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-    shadows: const [
-      BoxShadow(
-        color: Color(0x14000000),
-        blurRadius: 10,
-        offset: Offset(0, 2),
-        spreadRadius: 0,
-      )
-    ],
-  );
 }

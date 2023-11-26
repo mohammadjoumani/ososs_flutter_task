@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ososs_flutter_task/core/utils/resource/langauge_manager.dart';
-import 'package:ososs_flutter_task/features/home/presentation/home_view.dart';
+import 'package:ososs_flutter_task/features/animations/presentation/view/animations_view.dart';
+import 'package:ososs_flutter_task/features/home/presentation/view/home_view.dart';
+import 'package:ososs_flutter_task/features/pokemons/presentation/view/pokemons_view.dart';
 import 'package:ososs_flutter_task/features/splash/presentation/view/splash_view.dart';
 
 import 'string_manager.dart';
@@ -8,7 +10,7 @@ import 'string_manager.dart';
 class Routes {
   static const String splashRoute = "/";
   static const String homeRoute = "/home";
-  static const String shapesRoute = "/shapes";
+  static const String animationsRoute = "/animations";
   static const String pokemonsRoute = "/pokemons";
 }
 
@@ -20,6 +22,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashView());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeView());
+      case Routes.animationsRoute:
+        return MaterialPageRoute(builder: (_) => const AnimationsView());
+      case Routes.pokemonsRoute:
+        return MaterialPageRoute(builder: (_) => const PokemonsView());
       default:
         return unDefinedRoute();
     }
