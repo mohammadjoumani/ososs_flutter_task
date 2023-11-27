@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ososs_flutter_task/core/utils/resource/color_manager.dart';
 import 'package:ososs_flutter_task/core/utils/resource/font_manager.dart';
 import 'package:ososs_flutter_task/core/utils/resource/routes_manager.dart';
 import 'package:ososs_flutter_task/core/utils/resource/style_manager.dart';
 import 'package:ososs_flutter_task/core/utils/resource/values_manager.dart';
 import 'package:ososs_flutter_task/core/utils/widgets/generic_button.dart';
-import 'package:ososs_flutter_task/features/home/presentation/bloc/home_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  final TextEditingController _nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,34 +24,22 @@ class HomeViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: AppPadding.p16),
 
-          BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  //Input field
+          // Input Name
+          TextFormField(
+            controller: _nameController,
+            onChanged: (value) => setState(() {}),
+            decoration: const InputDecoration(
+              hintText: "Enter your name",
+            ),
+            onTapOutside: (value) => FocusScope.of(context).unfocus(),
+          ),
 
-                  TextFormField(
-                    controller: TextEditingController(text: state.name),
-                    onChanged: (value) {
-                      BlocProvider.of<HomeBloc>(context)
-                          .add(ChangeNameEvent(value));
-                    },
-                    decoration: const InputDecoration(
-                      hintText: "Enter your name",
-                    ),
-                    onTapOutside: (value) => FocusScope.of(context).unfocus(),
-                  ),
+          const SizedBox(height: AppPadding.p16),
 
-                  const SizedBox(height: AppPadding.p16),
-
-                  Text(
-                    state.name,
-                    style: Styles.getMediumStyle(
-                        color: ColorManager.colorBlack, fontSize: FontSize.s16),
-                  ),
-                ],
-              );
-            },
+          Text(
+            _nameController.text,
+            style: Styles.getMediumStyle(
+                color: ColorManager.colorBlack, fontSize: FontSize.s16),
           ),
 
           const SizedBox(height: AppPadding.p16),
@@ -56,7 +49,7 @@ class HomeViewBody extends StatelessWidget {
           // Clear Button
           TextButton(
             onPressed: () {
-              BlocProvider.of<HomeBloc>(context).add(ClearTextEvent());
+              _nameController.clear();
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -78,8 +71,7 @@ class HomeViewBody extends StatelessWidget {
           GenericButton(
             label: "Go to page 1",
             onPressed: () {
-              final name = BlocProvider.of<HomeBloc>(context).state.name;
-              if (name.isEmpty) {
+              if (_nameController.text.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text("Please enter your name"),
@@ -87,7 +79,7 @@ class HomeViewBody extends StatelessWidget {
                 );
               } else {
                 Navigator.pushNamed(context, Routes.animationsRoute,
-                    arguments: {"name": name});
+                    arguments: {"name": _nameController.text});
               }
             },
             backgroundColor: ColorManager.colorPurple,
