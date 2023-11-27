@@ -6,4 +6,5 @@ class Constants {
   static const String token = "SEND TOKEN HERE";
   static const int apiTimeOut = 60000;
   static const String dot = "●";
+  static const int PAGE_SIZE = 20;
 }

@@ -1,12 +1,5 @@
 import 'constants.dart';
 
-// extension Date on String {
-//   String getFormatDate() {
-//     String date = DateFormat('dd-MM-yyyy').format(DateTime.parse(this));
-//     return date;
-//   }
-// }
-
 extension NonNullString on String? {
   String orEmpty() {
     if (this == null) {

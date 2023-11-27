@@ -1,7 +1,7 @@
 part of 'home_bloc.dart';
 
 class HomeState {
-  String name;
+  final String name;
 
   HomeState({
     this.name = '',

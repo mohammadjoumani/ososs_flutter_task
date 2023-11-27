@@ -6,7 +6,9 @@ import 'package:ososs_flutter_task/core/utils/resource/values_manager.dart';
 import 'package:ososs_flutter_task/features/animations/presentation/view/widgets/custom_shape.dart';
 
 class AnimationsViewBody extends StatefulWidget {
-  const AnimationsViewBody({super.key});
+  const AnimationsViewBody({super.key, required this.name});
+
+  final String name;
 
   @override
   State<AnimationsViewBody> createState() => _AnimationsViewBodyState();
@@ -29,7 +31,7 @@ class _AnimationsViewBodyState extends State<AnimationsViewBody> {
           Expanded(
             flex: 2,
             child: Text(
-              "Your Name",
+              widget.name,
               style: Styles.getMediumStyle(
                   color: ColorManager.colorBlack, fontSize: FontSize.s16),
             ),

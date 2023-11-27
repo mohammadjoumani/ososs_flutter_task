@@ -19,25 +19,32 @@ class HomeViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: AppPadding.p16),
 
-          //Input field
-          TextFormField(
-            onChanged: (value) {
-              BlocProvider.of<HomeBloc>(context).add(ChangeNameEvent(value));
-            },
-            decoration: const InputDecoration(
-              hintText: "Enter your name",
-            ),
-            onTapOutside: (event) => FocusScope.of(context).unfocus(),
-          ),
-
-          const SizedBox(height: AppPadding.p16),
-
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              return Text(
-                state.name,
-                style: Styles.getMediumStyle(
-                    color: ColorManager.colorBlack, fontSize: FontSize.s16),
+              return Column(
+                children: [
+                  //Input field
+
+                  TextFormField(
+                    controller: TextEditingController(text: state.name),
+                    onChanged: (value) {
+                      BlocProvider.of<HomeBloc>(context)
+                          .add(ChangeNameEvent(value));
+                    },
+                    decoration: const InputDecoration(
+                      hintText: "Enter your name",
+                    ),
+                    onTapOutside: (value) => FocusScope.of(context).unfocus(),
+                  ),
+
+                  const SizedBox(height: AppPadding.p16),
+
+                  Text(
+                    state.name,
+                    style: Styles.getMediumStyle(
+                        color: ColorManager.colorBlack, fontSize: FontSize.s16),
+                  ),
+                ],
               );
             },
           ),
@@ -71,7 +78,17 @@ class HomeViewBody extends StatelessWidget {
           GenericButton(
             label: "Go to page 1",
             onPressed: () {
-              _goToPage1(context);
+              final name = BlocProvider.of<HomeBloc>(context).state.name;
+              if (name.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Please enter your name"),
+                  ),
+                );
+              } else {
+                Navigator.pushNamed(context, Routes.animationsRoute,
+                    arguments: {"name": name});
+              }
             },
             backgroundColor: ColorManager.colorPurple,
             textColor: ColorManager.colorWhite,
@@ -83,7 +100,7 @@ class HomeViewBody extends StatelessWidget {
           GenericButton(
             label: "Go to page 2",
             onPressed: () {
-              _goToPage2(context);
+              Navigator.pushNamed(context, Routes.pokemonsRoute);
             },
             backgroundColor: ColorManager.colorCyan,
             textColor: ColorManager.colorWhite,
@@ -93,13 +110,5 @@ class HomeViewBody extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void _goToPage1(BuildContext context) {
-    Navigator.pushNamed(context, Routes.animationsRoute);
-  }
-
-  void _goToPage2(BuildContext context) {
-    Navigator.pushNamed(context, Routes.pokemonsRoute);
   }
 }

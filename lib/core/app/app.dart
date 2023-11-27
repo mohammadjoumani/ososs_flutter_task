@@ -12,28 +12,8 @@ class OsossApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       title: 'Ossos Flutter Task',
-      // locale: ENGLISH_LOCAL,
-      // supportedLocales: const [ENGLISH_LOCAL, ARABIC_LOCAL],
-      // localizationsDelegates: const [
-      //   AppLocalizations.delegate,
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate
-      // ],
-      // localeResolutionCallback: (deviceLocale, supportedLocales) {
-      //   for (var locale in supportedLocales) {
-      //     if (deviceLocale != null &&
-      //         deviceLocale.languageCode == locale.languageCode) {
-      //       return deviceLocale;
-      //     }
-      //   }
-      //   return supportedLocales.first;
-      // },
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: Routes.splashRoute,
-      // theme: state.locale == ARABIC_LOCAL
-      //     ? ArabicLightModeTheme().themeData
-      //     : EnglishLightModeTheme().themeData,
     );
   }
 }

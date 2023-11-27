@@ -17,7 +17,7 @@ void main() async {
   await initAppModule();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const OsossApp(), // Wrap your app
     ),
   );

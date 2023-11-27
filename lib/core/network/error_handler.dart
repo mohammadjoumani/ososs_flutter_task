@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:ososs_flutter_task/core/app/app.dart';
-import 'package:ososs_flutter_task/core/utils/resource/langauge_manager.dart';
 import 'package:ososs_flutter_task/core/utils/resource/string_manager.dart';
 
 import 'failure.dart';
@@ -56,36 +54,35 @@ enum DataSource {
 
 extension DataSourceExtension on DataSource {
   Failure getFailure() {
-    final context = navigatorKey!.currentState!.context;
     switch (this) {
       case DataSource.SUCCESS:
-        return Failure(ResponseMessage.SUCCESS.tr(context));
+        return Failure(ResponseMessage.SUCCESS);
       case DataSource.NO_CONTENT:
-        return Failure(ResponseMessage.NO_CONTENT.tr(context));
+        return Failure(ResponseMessage.NO_CONTENT);
       case DataSource.BAD_REQUEST:
-        return Failure(ResponseMessage.BAD_REQUEST.tr(context));
+        return Failure(ResponseMessage.BAD_REQUEST);
       case DataSource.FORBIDDEN:
-        return Failure(ResponseMessage.FORBIDDEN.tr(context));
+        return Failure(ResponseMessage.FORBIDDEN);
       case DataSource.UNAUTORISED:
-        return Failure(ResponseMessage.UNAUTORISED.tr(context));
+        return Failure(ResponseMessage.UNAUTORISED);
       case DataSource.NOT_FOUND:
-        return Failure(ResponseMessage.NOT_FOUND.tr(context));
+        return Failure(ResponseMessage.NOT_FOUND);
       case DataSource.INTERNAL_SERVER_ERROR:
-        return Failure(ResponseMessage.INTERNAL_SERVER_ERROR.tr(context));
+        return Failure(ResponseMessage.INTERNAL_SERVER_ERROR);
       case DataSource.CONNECT_TIMEOUT:
-        return Failure(ResponseMessage.CONNECT_TIMEOUT.tr(context));
+        return Failure(ResponseMessage.CONNECT_TIMEOUT);
       case DataSource.CANCEL:
-        return Failure(ResponseMessage.CANCEL.tr(context));
+        return Failure(ResponseMessage.CANCEL);
       case DataSource.RECIEVE_TIMEOUT:
-        return Failure(ResponseMessage.RECIEVE_TIMEOUT.tr(context));
+        return Failure(ResponseMessage.RECIEVE_TIMEOUT);
       case DataSource.SEND_TIMEOUT:
-        return Failure(ResponseMessage.SEND_TIMEOUT.tr(context));
+        return Failure(ResponseMessage.SEND_TIMEOUT);
       case DataSource.CACHE_ERROR:
-        return Failure(ResponseMessage.CACHE_ERROR.tr(context));
+        return Failure(ResponseMessage.CACHE_ERROR);
       case DataSource.NO_INTERNET_CONNECTION:
-        return Failure(ResponseMessage.NO_INTERNET_CONNECTION.tr(context));
+        return Failure(ResponseMessage.NO_INTERNET_CONNECTION);
       case DataSource.DEFAULT:
-        return Failure(ResponseMessage.DEFAULT.tr(context));
+        return Failure(ResponseMessage.DEFAULT);
     }
   }
 }

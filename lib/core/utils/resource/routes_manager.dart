@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ososs_flutter_task/core/utils/resource/langauge_manager.dart';
 import 'package:ososs_flutter_task/features/animations/presentation/view/animations_view.dart';
 import 'package:ososs_flutter_task/features/home/presentation/view/home_view.dart';
+import 'package:ososs_flutter_task/features/pokemons/di/init_pokemons_module.dart';
 import 'package:ososs_flutter_task/features/pokemons/presentation/view/pokemons_view.dart';
 import 'package:ososs_flutter_task/features/splash/presentation/view/splash_view.dart';
 
@@ -23,8 +23,10 @@ class RouteGenerator {
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeView());
       case Routes.animationsRoute:
-        return MaterialPageRoute(builder: (_) => const AnimationsView());
+        final name = arguments["name"];
+        return MaterialPageRoute(builder: (_) => AnimationsView(name: name));
       case Routes.pokemonsRoute:
+        initPokemonsModule();
         return MaterialPageRoute(builder: (_) => const PokemonsView());
       default:
         return unDefinedRoute();
@@ -35,12 +37,12 @@ class RouteGenerator {
     return MaterialPageRoute(
       builder: (context) => Scaffold(
         appBar: AppBar(
-          title: Text(AppStrings.strNoRouteFound.tr(context)),
+          title: const Text(AppStrings.strNoRouteFound),
         ),
-        body: Center(
+        body: const Center(
           child: Text(
-            AppStrings.strNoRouteFound.tr(context),
-            style: const TextStyle(
+            AppStrings.strNoRouteFound,
+            style: TextStyle(
               color: Color(0xFFA0A0A0),
               fontSize: 14,
               fontWeight: FontWeight.w500,
