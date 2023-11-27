@@ -1,16 +1,26 @@
-# ososs_flutter_task
+# Ososs Flutter Task
 
-A new Flutter project.
+## Screenshots
 
-## Getting Started
+  <img src="https://github.com/mohammadjoumani/ososs_flutter_task/assets/53276286/118f46ae-f051-4362-af31-fc43dcf39ba2" width= "150" height="250">
+  <img src="https://github.com/mohammadjoumani/ososs_flutter_task/assets/53276286/071eedce-4d13-499f-8928-db8d45e3513b" width= "150" height="250">
+  <img src="https://github.com/mohammadjoumani/ososs_flutter_task/assets/53276286/cb3e37bd-db68-4d75-9622-fb7cb0268689" width= "150" height="250">
+  <img src="https://github.com/mohammadjoumani/ososs_flutter_task/assets/53276286/ec364074-2f95-40fb-bece-7bb7a529d0ca" width= "150" height="250">
+  <img src="https://github.com/mohammadjoumani/ososs_flutter_task/assets/53276286/64a2bb14-39f5-451f-b485-8c11ad49f9ee" width= "150" height="250">
+</div>
 
-This project is a starting point for a Flutter application.
+-----------------------------------------------------------------------------------
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- SpalshView
+- HomeView
+- AnimationsView
+- PokemonsView
+- 
+-----------------------------------------------------------------------------------
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Install app for test
+- [Android apk](https://drive.google.com/file/d/1QiJygqhHY3AV6vzWDkirWN45kP5_psmQ/view?usp=sharing)
+- [Live demo](https://mohammadjoumani.github.io/ososs_flutter_task/)
