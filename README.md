@@ -21,6 +21,6 @@
 
 ## Installation
 
-# Install app for text
+# Install app for test
 - [Android apk](https://drive.google.com/file/d/1QiJygqhHY3AV6vzWDkirWN45kP5_psmQ/view?usp=sharing)
 - [Live demo](https://mohammadjoumani.github.io/ososs_flutter_task/)
