@@ -23,4 +23,4 @@
 
 # Install app for test
 - [Android apk](https://drive.google.com/file/d/1gTdAdTSJ7EYSR3HQa2_ozq0Z_Jjj0nNi/view?usp=sharing)
-- [Live demo](https://mohammadjoumani.github.io/ososs_flutter_task/)
+- [Live demo](https://mohammadjoumani.github.io/ososs_task/)
